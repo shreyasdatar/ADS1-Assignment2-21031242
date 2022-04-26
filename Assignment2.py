@@ -47,26 +47,7 @@ def read_data(fname):
     return df, df.T
 
 
-def avg_var(df):
-    '''
-    The function returns mean and variance of each column of a Dataframe
 
-    Parameters
-    ----------
-    df : Pandas Dataframe
-        A Pandas Dataframe containing data.
-
-    Returns
-    -------
-    mean : Pandas Series
-        A Pandas Series containing mean for each column of the Dataframe.
-    var : Pandas Series
-        A Pandas Series containing variance for each column of the Dataframe.
-
-    '''
-    mean = df.mean()
-    var = df.var()
-    return mean, var
     
 
 
