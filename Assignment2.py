@@ -48,8 +48,74 @@ def read_data(fname):
 
 
 
-    
+df, dfT = read_data("Dataset.csv")
+df_co2, df_co2T = read_data("CO2 emissions (metric tons per capita).csv")
+df_popg, df_popgT = read_data("Population growth (annual %).csv")
+df_tpop, df_tpopT = read_data("Population Total.csv")
+df_urbpop, df_urbpopT = read_data("Urban Population.csv")
 
 
+# Average CO2 emissions in last 10 years for 12 countries
+mean_co2 = df_co2T.mean()
+plt.figure()
+ax = plt.axes(facecolor='#E6E6E6')
+ax.set_axisbelow(True)
+plt.grid(color='w', linestyle='solid')
+plt.bar(mean_co2.index, mean_co2.values, color='gray')
+plt.xticks(np.arange(12), mean_co2.index, rotation=-90)
+plt.title("Average CO2 emissions for past 10 years")
+plt.xlabel("Countries")
+plt.ylabel("metric tons per capita")
+plt.show()
+plt.savefig("CO2.png")
+
+
+# colourbar for population growth in countries over 10 years
+plt.figure()
+plt.subplot()
+ax = plt.gca()
+img = ax.imshow(df_popgT, cmap='seismic', vmin=-4, vmax=4)
+plt.colorbar(img, label="%")
+plt.colormaps()
+ax.set_yticks(np.arange(0,10))
+ax.set_yticklabels(df_popgT.index)
+ax.set_xticks(np.arange(0,12))
+ax.set_xticklabels(df_popgT.columns, rotation=-90)
+plt.title("Population growth (annual %)")
+plt.xlabel("Countries")
+plt.ylabel("Years")
+plt.show()
+plt.savefig("Colourbar.png")
+
+
+# line plot showing change in total population 
+# of each country every year in billions
+plt.figure(figsize=(10,10))
+ax = plt.axes(facecolor='#E6E6E6')
+ax.set_axisbelow(True)
+plt.grid(color='w', linestyle='solid')
+plt.plot(df_tpopT, marker="o")
+plt.xticks(np.arange(10), df_tpopT.index, rotation=-90)
+plt.legend(df_tpopT.columns)
+plt.title("Total population Population")
+plt.xlabel("Years")
+plt.ylabel("Total Population in Billions")
+plt.show()
+plt.savefig("Totpop.png")
+
+
+# Correlation between CO2 emissions and urban population
+corr = df_urbpopT.corrwith(df_co2T)
+plt.figure()
+ax = plt.axes(facecolor='#E6E6E6')
+ax.set_axisbelow(True)
+plt.grid(color='w', linestyle='solid')
+plt.bar(corr.index, corr.values)
+plt.xticks(np.arange(12), corr.index, rotation=-90)
+plt.title("Correlation between CO2 emissions & Urban Population")
+plt.xlabel("Countries")
+plt.ylabel("Correlation")
+plt.show()
+plt.savefig("Corr.png")
 
 
