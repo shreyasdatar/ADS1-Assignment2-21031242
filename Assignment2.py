@@ -66,8 +66,9 @@ plt.xticks(np.arange(12), mean_co2.index, rotation=-90)
 plt.title("Average CO2 emissions for past 10 years")
 plt.xlabel("Countries")
 plt.ylabel("metric tons per capita")
-plt.show()
 plt.savefig("CO2.png")
+plt.show()
+
 
 
 # colourbar for population growth in countries over 10 years
@@ -84,8 +85,9 @@ ax.set_xticklabels(df_popgT.columns, rotation=-90)
 plt.title("Population growth (annual %)")
 plt.xlabel("Countries")
 plt.ylabel("Years")
-plt.show()
 plt.savefig("Colourbar.png")
+plt.show()
+
 
 
 # line plot showing change in total population 
@@ -100,8 +102,9 @@ plt.legend(df_tpopT.columns)
 plt.title("Total population Population")
 plt.xlabel("Years")
 plt.ylabel("Total Population in Billions")
-plt.show()
 plt.savefig("Totpop.png")
+plt.show()
+
 
 
 # Correlation between CO2 emissions and urban population
@@ -115,7 +118,8 @@ plt.xticks(np.arange(12), corr.index, rotation=-90)
 plt.title("Correlation between CO2 emissions & Urban Population")
 plt.xlabel("Countries")
 plt.ylabel("Correlation")
-plt.show()
 plt.savefig("Corr.png")
+plt.show()
+
 
 
