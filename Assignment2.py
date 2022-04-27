@@ -57,7 +57,7 @@ df_urbpop, df_urbpopT = read_data("Urban Population.csv")
 
 # Average CO2 emissions in last 10 years for 12 countries
 mean_co2 = df_co2T.mean()
-plt.figure()
+plt.figure(figsize=(10,10))
 ax = plt.axes(facecolor='#E6E6E6')
 ax.set_axisbelow(True)
 plt.grid(color='w', linestyle='solid')
@@ -72,7 +72,7 @@ plt.show()
 
 
 # colourbar for population growth in countries over 10 years
-plt.figure()
+plt.figure(figsize=(10,10))
 plt.subplot()
 ax = plt.gca()
 img = ax.imshow(df_popgT, cmap='seismic', vmin=-4, vmax=4)
@@ -109,7 +109,7 @@ plt.show()
 
 # Correlation between CO2 emissions and urban population
 corr = df_urbpopT.corrwith(df_co2T)
-plt.figure()
+plt.figure(figsize=(10,10))
 ax = plt.axes(facecolor='#E6E6E6')
 ax.set_axisbelow(True)
 plt.grid(color='w', linestyle='solid')
